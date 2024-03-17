@@ -65,8 +65,9 @@ def run():
                                     6:""}
 
     st.write("# This is an example of an escape room")
-    if st.button("Start Escape Room") & (st.session_state.progress==0):
-        st.session_state.progress = 1
+    if st.session_state.progress == 0:
+        if st.button("Start Escape Room"):
+            st.session_state.progress = 1
     
     if st.session_state.progress > 6:
         st.write("Congratulations! You've Escaped!")
@@ -78,10 +79,10 @@ def run():
         if st.button("Submit answer"):
             if st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]:
                 st.write("Correct!!")
-            elif st.button("Next Question") & (st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]):
-                st.session_state.progress = st.session_state.progress + 1
-            elif st.button("Previous Question") & (st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]):
-                st.session_state.progress = st.session_state.progress - 1
+                if st.button("Next Question"):
+                    st.session_state.progress = st.session_state.progress + 1
+                if st.button("Previous Question"):
+                    st.session_state.progress = st.session_state.progress - 1
             else:
                 st.write("Your answer " + st.session_state.answers[st.session_state.progress] + " is incorrect! Try Again or look at the hits below!")
         with st.expander("Hint Level 1"):
