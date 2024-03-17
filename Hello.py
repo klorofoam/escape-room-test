@@ -52,11 +52,16 @@ def run():
                     5:"Hint 5 Level 2",
                     6:"Hint 6 Level 2"}
 
-    if 'progress' not in st.session_state:
+    if "progress" not in st.session_state:
         st.session_state.progress = 0
 
-    if 'answers' not in st.session_state:
-        st.session_state.answers = {}
+    if "answers" not in st.session_state:
+        st.session_state.answers = {1:"",
+                                    2:"",
+                                    3:"",
+                                    4:"",
+                                    5:"",
+                                    6:""}
 
     st.write("# This is an example of an escape room")
     if st.button("Start Escape Room"):
