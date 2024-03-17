@@ -42,7 +42,7 @@ def run():
         if st.button("Submit answer 2"):
             if answer_2 == "test123":
                 st.write("Correct!")
-                st.session_state.progress == 2
+                st.session_state.progress = 2
             else:
                 st.write("Wrong. Hint 2")
     
