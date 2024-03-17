@@ -74,13 +74,15 @@ def run():
     elif st.session_state.progress > 0:
         st.write(questions[st.session_state.progress])
         st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer")
-        if st.button("Submit answer 1"):
+        if st.button("Submit answer"):
             if st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]:
                 st.write("Correct!!")
                 if st.button("Next Question"):
                     st.session_state.progress = st.session_state.progress + 1
                 if st.button("Previous Question"):
                     st.session_state.progress = st.session_state.progress - 1
+            else:
+                st.write("That is incorrect! Try Again!")
         with st.expander("Hint Level 1"):
             st.write(hint_level_1[st.session_state.progress])
         with st.expander("Hint Level 2"):
