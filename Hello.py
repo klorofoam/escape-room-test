@@ -22,6 +22,7 @@ def run():
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
+        initial_sidebar_state="collapsed"
     )
 
     questions = {1:"Question 1",
