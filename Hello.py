@@ -52,6 +52,13 @@ def run():
                     4:"Hint 4 Level 2",
                     5:"Hint 5 Level 2",
                     6:"Hint 6 Level 2"}
+    
+    images = {1:"Question 1.jpg",
+              2:"Question 2.jpg",
+              3:"Question 3.jpg",
+              4:"Question 4.jpg",
+              5:"Question 5.jpg",
+              6:"Question 6.jpg"}
 
     if "progress" not in st.session_state:
         st.session_state.progress = 0
@@ -67,6 +74,7 @@ def run():
 
     st.write("# This is an example of an escape room")
     if st.session_state.progress == 0:
+        st.image("./IMG_0125.png")
         if st.button("Start Escape Room"):
             st.session_state.progress = 1
             st.rerun()
