@@ -23,7 +23,8 @@ def run():
         page_title="Hello",
         page_icon="👋",
     )
-
+    progress = {"qn1":False,
+                "qn2":False}
     st.write("# This is an example of an escape room")
 
     st.write("Question 1: abcdefg")
@@ -31,8 +32,22 @@ def run():
     if st.button("Submit answer 1"):
         if answer_1 == "test":
             st.write("Correct!")
+            progress["qn1"]=True
         else:
             st.write("Wrong. Hint 1")
+
+    if progress["qn1"]==True:
+        st.write("Question 2: abcdefg")
+        answer_2 = st.text_input("Enter your answer to question 2")
+        if st.button("Submit answer 2"):
+            if answer_2 == "test123":
+                st.write("Correct!")
+                progress["qn2"]=True
+            else:
+                st.write("Wrong. Hint 2")
+    
+    if progress["qn1"]==True & progress["qn2"]==True:
+        st.write("Congrats! You done")
 
 if __name__ == "__main__":
     run()
