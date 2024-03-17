@@ -36,7 +36,7 @@ def run():
         else:
             st.write("Wrong. Hint 1")
 
-    if st.session_state.progress > 1:
+    if st.session_state.progress > 0:
         st.write("Question 2: abcdefg")
         answer_2 = st.text_input("Enter your answer to question 2")
         if st.button("Submit answer 2"):
@@ -46,9 +46,9 @@ def run():
             else:
                 st.write("Wrong. Hint 2")
     
-    if st.session_state.progress > 2:
+    if st.session_state.progress > 1:
         st.write("Congrats! You done")
-        
+
 
 if __name__ == "__main__":
     run()
