@@ -71,7 +71,7 @@ def run():
         st.write("Congratulations! You've Escaped!")
         if st.button("Restart Escape Room"):
             st.session_state.progress = 1
-    else:
+    elif st.session_state.progress > 0:
         st.write(questions[st.session_state.progress])
         st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer")
         if st.button("Submit answer 1"):
