@@ -53,12 +53,12 @@ def run():
                     5:"Hint 5 Level 2",
                     6:"Hint 6 Level 2"}
     
-    images = {1:"Question 1.jpg",
-              2:"Question 2.jpg",
-              3:"Question 3.jpg",
-              4:"Question 4.jpg",
-              5:"Question 5.jpg",
-              6:"Question 6.jpg"}
+    images = {1:"./Question 1.jpg",
+              2:"./Question 2.jpg",
+              3:"./Question 3.jpg",
+              4:"./Question 4.jpg",
+              5:"./Question 5.jpg",
+              6:"./Question 6.jpg"}
 
     if "progress" not in st.session_state:
         st.session_state.progress = 0
@@ -86,6 +86,7 @@ def run():
             st.rerun()
 
     else:
+        st.image(images[st.session_state.progress])
         st.write(questions[st.session_state.progress])
         st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer", st.session_state.answers[st.session_state.progress])
         if st.button("Submit answer"):
