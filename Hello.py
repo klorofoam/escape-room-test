@@ -17,45 +17,46 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-questions = {1:"Question 1",
-             2:"Question 2",
-             3:"Question 3",
-             4:"Question 4",
-             5:"Question 5",
-             6:"Question 6"}
-
-answers = {1:"Answer 1",
-           2:"Answer 2",
-           3:"Answer 3",
-           4:"Answer 4",
-           5:"Answer 5",
-           6:"Answer 6"}
-
-hint_level_1 = {1:"Hint 1 Level 1",
-                2:"Hint 2 Level 1",
-                3:"Hint 3 Level 1",
-                4:"Hint 4 Level 1",
-                5:"Hint 5 Level 1",
-                6:"Hint 6 Level 1"}
-
-hint_level_2 = {1:"Hint 1 Level 2",
-                2:"Hint 2 Level 2",
-                3:"Hint 3 Level 2",
-                4:"Hint 4 Level 2",
-                5:"Hint 5 Level 2",
-                6:"Hint 6 Level 2"}
-
-if 'progress' not in st.session_state:
-    st.session_state.progress = 0
-
-if 'answers' not in st.session_state:
-    st.session_state.answers = {}
 
 def run():
     st.set_page_config(
         page_title="Hello",
         page_icon="👋",
     )
+
+    questions = {1:"Question 1",
+             2:"Question 2",
+             3:"Question 3",
+             4:"Question 4",
+             5:"Question 5",
+             6:"Question 6"}
+
+    answers = {1:"Answer 1",
+            2:"Answer 2",
+            3:"Answer 3",
+            4:"Answer 4",
+            5:"Answer 5",
+            6:"Answer 6"}
+
+    hint_level_1 = {1:"Hint 1 Level 1",
+                    2:"Hint 2 Level 1",
+                    3:"Hint 3 Level 1",
+                    4:"Hint 4 Level 1",
+                    5:"Hint 5 Level 1",
+                    6:"Hint 6 Level 1"}
+
+    hint_level_2 = {1:"Hint 1 Level 2",
+                    2:"Hint 2 Level 2",
+                    3:"Hint 3 Level 2",
+                    4:"Hint 4 Level 2",
+                    5:"Hint 5 Level 2",
+                    6:"Hint 6 Level 2"}
+
+    if 'progress' not in st.session_state:
+        st.session_state.progress = 0
+
+    if 'answers' not in st.session_state:
+        st.session_state.answers = {}
 
     st.write("# This is an example of an escape room")
     if st.button("Start Escape Room"):
