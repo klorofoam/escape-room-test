@@ -65,7 +65,7 @@ def run():
                                     6:""}
 
     st.write("# This is an example of an escape room")
-    if st.button("Start Escape Room"):
+    if st.button("Start Escape Room") & (st.session_state.progress==0):
         st.session_state.progress = 1
     
     if st.session_state.progress > 6:
