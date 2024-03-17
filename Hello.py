@@ -48,6 +48,7 @@ def run():
     
     if st.session_state.progress > 2:
         st.write("Congrats! You done")
+        
 
 if __name__ == "__main__":
     run()
