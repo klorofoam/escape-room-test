@@ -63,32 +63,47 @@ def run():
                                     4:"",
                                     5:"",
                                     6:""}
+        
 
     st.write("# This is an example of an escape room")
     if st.session_state.progress == 0:
         if st.button("Start Escape Room"):
             st.session_state.progress = 1
+            st.rerun()
     
-    if st.session_state.progress > 6:
+    elif st.session_state.progress > 6:
         st.write("Congratulations! You've Escaped!")
         if st.button("Restart Escape Room"):
             st.session_state.progress = 1
-    elif st.session_state.progress > 0:
+            st.rerun()
+
+    else:
         st.write(questions[st.session_state.progress])
-        st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer")
+        st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer", st.session_state.answers[st.session_state.progress])
         if st.button("Submit answer"):
             if st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]:
                 st.write("Correct!!")
-                if st.button("Next Question"):
-                    st.session_state.progress = st.session_state.progress + 1
-                if st.button("Previous Question"):
-                    st.session_state.progress = st.session_state.progress - 1
             else:
                 st.write("Your answer " + st.session_state.answers[st.session_state.progress] + " is incorrect! Try Again or look at the hits below!")
-        with st.expander("Hint Level 1"):
-            st.write(hint_level_1[st.session_state.progress])
-        with st.expander("Hint Level 2"):
-            st.write(hint_level_2[st.session_state.progress])
+        if st.button("Next Question"):
+            if st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]:
+                st.session_state.progress = st.session_state.progress + 1
+                st.rerun()
+            else:
+                st.write("You can't move forward")
+                st.rerun()
+        if st.button("Previous Question"):
+            if st.session_state.progress > 1:
+                st.session_state.progress = st.session_state.progress - 1
+                st.rerun()
+            else:
+                st.session_state.progress = 0
+                st.rerun()
+        if st.session_state.progress > 0:
+            with st.expander("Hint Level 1"):
+                st.write(hint_level_1[st.session_state.progress])
+            with st.expander("Hint Level 2"):
+                st.write(hint_level_2[st.session_state.progress])
 
 
 
