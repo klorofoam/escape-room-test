@@ -83,7 +83,7 @@ def run():
                 if st.button("Previous Question"):
                     st.session_state.progress = st.session_state.progress - 1
             else:
-                st.write("That is incorrect! Try Again!")
+                st.write("Your answer " + st.session_state.answers[st.session_state.progress] + " is incorrect! Try Again or look at the hits below!")
         with st.expander("Hint Level 1"):
             st.write(hint_level_1[st.session_state.progress])
         with st.expander("Hint Level 2"):
