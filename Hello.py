@@ -14,6 +14,7 @@
 
 import streamlit as st
 from streamlit.logger import get_logger
+import time
 
 LOGGER = get_logger(__name__)
 
@@ -88,6 +89,7 @@ def run():
     else:
         st.write(questions[st.session_state.progress])
         st.image(images[st.session_state.progress])
+        time.sleep(0.5)
         st.session_state.answers[st.session_state.progress] = st.text_input("Enter your answer", st.session_state.answers[st.session_state.progress])
         if st.button("Submit answer"):
             if st.session_state.answers[st.session_state.progress] == answers[st.session_state.progress]:
