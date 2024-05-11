@@ -421,7 +421,7 @@ def run():
             st.session_state.progress = 1
             st.rerun()
     
-    elif st.session_state.progress > 13:
+    elif st.session_state.progress > 12:
         st.write("Completed!")
         personality = calculate_results(st.session_state.answers)
         st.write(personality)
