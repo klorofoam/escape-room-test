@@ -374,11 +374,11 @@ def run():
         result = {}
         personality = ""
         for answer in answers.keys():
-            for attribute in answer.keys():
+            for attribute in answers[answer].keys():
                 if attribute not in result.keys():
-                    result.update({attribute:answer[attribute]})
+                    result.update({attribute:answers[answer][attribute]})
                 else:
-                    result[attribute] = result[attribute] + answer[attribute]
+                    result[attribute] = result[attribute] + answers[answer][attribute]
 
         if result["I"] > result["E"]:
             personality += "I"
@@ -403,16 +403,18 @@ def run():
     st.write("# This is an example of an escape room")
     if st.session_state.progress == 0:
         st.image("./IMG_0125.png")
-        if st.button("Start Escape Room"):
+        if st.button("Start Personality Quiz"):
             st.session_state.progress = 1
             st.rerun()
     
     elif st.session_state.progress > 12:
-        st.write("Congratulations! You've Escaped!")
+        st.write("Completed!")
         personality = calculate_results(st.session_state.answers)
         st.write(personality)
-        if st.button("Restart Escape Room"):
-            st.session_state.progress = 1
+        # st.image(resultOptions[personality]['image'])
+        st.write(resultOptions[personality]['image'])
+        if st.button("Restart Personality Quiz"):
+            st.session_state.progress = 0
             st.rerun()
 
     else:
@@ -425,7 +427,7 @@ def run():
             st.session_state.progress = st.session_state.progress + 1
             st.rerun()
         if st.button(questions[st.session_state.progress]['answers']['option2']['text']):
-            st.session_state.answers[st.session_state.progress] = questions[st.session_state.progress]['answers']['option1']['scores']
+            st.session_state.answers[st.session_state.progress] = questions[st.session_state.progress]['answers']['option2']['scores']
             st.session_state.progress = st.session_state.progress + 1
             st.rerun()
         if st.button("Previous Question"):
