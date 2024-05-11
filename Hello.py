@@ -15,6 +15,7 @@
 import streamlit as st
 from streamlit.logger import get_logger
 import time
+import base64
 
 LOGGER = get_logger(__name__)
 
@@ -137,7 +138,7 @@ def run():
         {"empty":"placeholder"},
         {
             "question": "Q1/12: You're taking the bus on your way back home. It's been a loooong day, what are you thinking about?",
-            "image": "images/Q1.gif",
+            "image": "image/Q1.gif",
             "answers": {
                 "option1": {
                     "text": "I'm just so tired and can't wait to go home. Why does everyday feel the same...",
@@ -151,7 +152,7 @@ def run():
         },
         {
             "question": "Q2/12: You look outside the windows, seems like it's going to rain soon. Suddenly everything turns into darkness!!",
-            "image": "images/Q2.gif",
+            "image": "image/Q2.gif",
             "answers": {
                 "option1": {
                     "text": "I don't remember this tunnel. *Pull out your phone to look at the map*",
@@ -165,7 +166,7 @@ def run():
         },
         {
             "question": "Q3/12: Before you can do anything, the bus stops and everything around you floats up!",
-            "image": "images/Q3.gif",
+            "image": "image/Q3.gif",
             "answers": {
                 "option1": {
                     "text": "Ok this is weird, am I dreaming? *pinch your arm*",
@@ -179,7 +180,7 @@ def run():
         },
         {
             "question": "Q4/12: Amidst the surprise, your eyes catch something drifting past the window.",
-            "image": "images/Q4.gif",
+            "image": "image/Q4.gif",
             "answers": {
                 "option1": {
                     "text": "Woahhh...so many cats! How cute!! I wanna give them a hug!",
@@ -193,7 +194,7 @@ def run():
         },
         {
             "question": "Q5/12: 'Welcome Aboard!' a small robot appears and announces, 'We will reach our destination in 5 months 6 days and 2 hours!'",
-            "image": "images/Q5.gif",
+            "image": "image/Q5.gif",
             "answers": {
                 "option1": {
                     "text": "Cool! A space cruise?! Where are we going? Do I get a spacesuit? This is so exciting!",
@@ -207,7 +208,7 @@ def run():
         },
         {
             "question": "Q6/12: The robot just points to the back of the bus which now looks more like inside of a spaceship! What do you want to see first?",
-            "image": "images/Q6.gif",
+            "image": "image/Q6.gif",
             "answers": {
                 "option1": {
                     "text": "Solar system themed fountain in the middle. I want to take pictures with it.",
@@ -221,7 +222,7 @@ def run():
         },
         {
             "question": "Q7/12: On the way back to your seat, you are surrounded by cats! 'Unauthorized passenger detected, CAPTURE CAPTURE!'",
-            "image": "images/Q7.gif",
+            "image": "image/Q7.gif",
             "answers": {
                 "option1": {
                     "text": "Woah! What do you mean unauthorized? I'm the passenger of this cruise!",
@@ -235,7 +236,7 @@ def run():
         },
         {
             "question": "Q8/12: Suddenly, the robot glides in, it whispers something to the cats that makes them stop.",
-            "image": "images/Q8.gif",
+            "image": "image/Q8.gif",
             "answers": {
                 "option1": {
                     "text": "Bob!! Thank you! You come to save me, right?",
@@ -249,7 +250,7 @@ def run():
         },
         {
             "question": "Q9/12: The robot transforms into a giant vacuum cleaner, the cats use it to point at you!",
-            "image": "images/Q9.gif",
+            "image": "image/Q9.gif",
             "answers": {
                 "option1": {
                     "text": "Throw your coat at them as distraction, run towards the big green 'EXIT' sign!",
@@ -263,7 +264,7 @@ def run():
         },
         {
             "question": "Q10/12: You run past the gift shop. Looks like you got rid of them. It wouldn't hurt to get some souvenirs, right?",
-            "image": "images/Q10.gif",
+            "image": "image/Q10.gif",
             "answers": {
                 "option1": {
                     "text": "Get the Jupiter headphone, wear it to hear people's thoughts!",
@@ -278,7 +279,7 @@ def run():
         },
         {
             "question": "Q11/12: The giant vacuum cleaner suddenly emerges in front of you! You're sucked into its vortex!!!",
-            "image": "images/Q11.gif",
+            "image": "image/Q11.gif",
             "answers": {
                 "option1": {
                     "text": "It's ok, this is just a dream! I'll wake up soon! *close your eyes and give up*",
@@ -292,7 +293,7 @@ def run():
         },
         {
             "question": "Q12/12: After a moment of darkness, you find yourself back in the bus. 'Are you alright?' the ticket inspector asks",
-            "image": "images/Q12.gif",
+            "image": "image/Q12.gif",
             "answers": {
                 "option1": {
                     "text": "Woah! I thought I was captured... Nevermind! I'm alright now, I guess? *panic in silence*",
@@ -306,7 +307,7 @@ def run():
         },
         {
             "question": "When you look up again, the inspector's already gone. You glance outside the window, darkness creeps in as the bus enters another tunnel...",
-            "image": "images/Q13.gif",
+            "image": "image/Q13.gif",
             "answers": {
                 "option1": {
                     "text": "Wait...was that Bob?",
@@ -399,20 +400,34 @@ def run():
 
         return personality
 
+    def show_gif(filepath):
+        """### gif from local file"""
+        file_ = open(filepath, "rb")
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        file_.close()
+
+        st.markdown(
+            f'<img src="data:image/gif;base64,{data_url}" width="720" height="720" alt="gif">',
+            unsafe_allow_html=True,
+        )
 
     st.write("# This is an example of a personality quiz")
+    st.write("All credits belong to https://github.com/IseeJ/CosmosPersona/tree/main")
     if st.session_state.progress == 0:
-        st.image("./IMG_0125.png")
+        show_gif("./image/main.gif")
+        # st.image("./image/main.gif")
         if st.button("Start Personality Quiz"):
             st.session_state.progress = 1
             st.rerun()
     
-    elif st.session_state.progress > 12:
+    elif st.session_state.progress > 13:
         st.write("Completed!")
         personality = calculate_results(st.session_state.answers)
         st.write(personality)
-        # st.image(resultOptions[personality]['image'])
-        st.write(resultOptions[personality]['image'])
+        # st.image("image"+resultOptions[personality]['image'])
+        show_gif("image"+resultOptions[personality]['image'])
+        # st.write(resultOptions[personality]['image'])
         if st.button("Restart Personality Quiz"):
             st.session_state.progress = 0
             st.rerun()
@@ -420,7 +435,8 @@ def run():
     else:
         st.write(questions[st.session_state.progress]['question'])
         # st.image(questions[st.session_state.progress]['image'])
-        st.write(questions[st.session_state.progress]['image']) # Write image name for now instead of showing image
+        show_gif(questions[st.session_state.progress]['image'])
+        # st.write(questions[st.session_state.progress]['image']) # Write image name for now instead of showing image
         time.sleep(0.5)
         if st.button(questions[st.session_state.progress]['answers']['option1']['text']):
             st.session_state.answers[st.session_state.progress] = questions[st.session_state.progress]['answers']['option1']['scores']
