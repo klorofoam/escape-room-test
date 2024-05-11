@@ -400,7 +400,7 @@ def run():
         return personality
 
 
-    st.write("# This is an example of an escape room")
+    st.write("# This is an example of a personality quiz")
     if st.session_state.progress == 0:
         st.image("./IMG_0125.png")
         if st.button("Start Personality Quiz"):
