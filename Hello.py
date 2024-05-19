@@ -26,18 +26,18 @@ def run():
         page_icon="👋",
         initial_sidebar_state="collapsed"
     )
-    m = st.markdown("""
-    <style>
-    div.stButton > button:first-child {
-        background-color: rgb(214, 211, 169);
-        height: auto;
-        width: 200px;
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-    }
-    </style>""", unsafe_allow_html=True)
+    # m = st.markdown("""
+    # <style>
+    # div.stButton > button:first-child {
+    #     background-color: rgb(214, 211, 169);
+    #     height: auto;
+    #     width: 200px;
+    #     padding-top: 10px !important;
+    #     padding-bottom: 10px !important;
+    # }
+    # </style>""", unsafe_allow_html=True)
 
-    b = st.button("test")
+    b = st.button("Secondary button",type="secondary")
 
     # questions = {1:"Question 1",
     #          2:"Question 2",

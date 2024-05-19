@@ -9,7 +9,7 @@ button[kind="primary"] {
     padding-bottom: 10px !important;
 }
 
-button[kind="seondary"] {
+button[kind="secondary"] {
     background-color: rgb(214, 211, 169);
     height: auto;
     width: 200px;
