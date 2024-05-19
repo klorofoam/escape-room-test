@@ -37,30 +37,34 @@ def run():
     # }
     # </style>""", unsafe_allow_html=True)
 
-    m = st.markdown("""
+    st.markdown("""
     <style>
     button[kind="primary"] {
     background-color: rgb(240, 103, 137);
+    color: rgb(51, 51, 51);
+    border: 2px rgb(51, 51, 51);
     height: auto;
     width: 200px;
     padding-top: 10px !important
     padding-bottom: 10px !important;
     }
-    </style>""", unsafe_allow_html=True)
+    </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
 
-    m = st.markdown("""
+    st.markdown("""
     <style>
     button[kind="secondary"] {
     background-color: rgb(214, 211, 169);
+    color: rgb(51, 51, 51);
+    border: 2px rgb(51, 51, 51);
     height: auto;
     width: 200px;
     padding-top: 10px !important
     padding-bottom: 10px !important;
     }
-    </style>""", unsafe_allow_html=True)
+    </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
 
     st.button("Primary button", type="primary")
-    st.button("Secondary button")
+    st.button("Secondary button", type="secondary")
 
     # questions = {1:"Question 1",
     #          2:"Question 2",
