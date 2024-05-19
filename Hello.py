@@ -37,7 +37,8 @@ def run():
     # }
     # </style>""", unsafe_allow_html=True)
 
-    b = st.button("Secondary button",type="secondary")
+    st.button("Primary button", type="primary")
+    st.button("Secondary button")
 
     # questions = {1:"Question 1",
     #          2:"Question 2",
