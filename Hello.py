@@ -65,6 +65,7 @@ def run():
 
     st.button("Primary button", type="primary")
     st.button("Secondary button", type="secondary")
+    st.link_button("custom url", "https://www.google.com")
 
     # questions = {1:"Question 1",
     #          2:"Question 2",
