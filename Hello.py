@@ -37,6 +37,28 @@ def run():
     # }
     # </style>""", unsafe_allow_html=True)
 
+    m = st.markdown("""
+    <style>
+    button[kind="primary"] {
+    background-color: rgb(240, 103, 137);
+    height: auto;
+    width: 200px;
+    padding-top: 10px !important
+    padding-bottom: 10px !important;
+    }
+    </style>""", unsafe_allow_html=True)
+
+    m = st.markdown("""
+    <style>
+    button[kind="secondary"] {
+    background-color: rgb(214, 211, 169);
+    height: auto;
+    width: 200px;
+    padding-top: 10px !important
+    padding-bottom: 10px !important;
+    }
+    </style>""", unsafe_allow_html=True)
+
     st.button("Primary button", type="primary")
     st.button("Secondary button")
 
