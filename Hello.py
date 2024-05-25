@@ -37,34 +37,54 @@ def run():
     # }
     # </style>""", unsafe_allow_html=True)
 
-    st.markdown("""
-    <style>
-    button[kind="primary"] {
-    background-color: rgb(240, 103, 137);
-    color: rgb(51, 51, 51);
-    border: 2px rgb(51, 51, 51);
-    height: auto;
-    width: 200px;
-    padding-top: 10px !important
-    padding-bottom: 10px !important;
-    }
-    </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
+    # st.markdown("""
+    # <style>
+    # button[kind="primary"] {
+    # background-color: rgb(240, 103, 137);
+    # color: rgb(51, 51, 51);
+    # border: 2px rgb(51, 51, 51);
+    # height: auto;
+    # width: 200px;
+    # padding-top: 10px !important
+    # padding-bottom: 10px !important;
+    # }
+    # </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
 
-    st.markdown("""
-    <style>
-    button[kind="secondary"] {
-    background-color: rgb(214, 211, 169);
-    color: rgb(51, 51, 51);
-    border: 2px rgb(51, 51, 51);
-    height: auto;
-    width: 200px;
-    padding-top: 10px !important
-    padding-bottom: 10px !important;
-    }
-    </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
+    # st.markdown("""
+    # <style>
+    # button[kind="secondary"] {
+    # background-color: rgb(214, 211, 169);
+    # color: rgb(51, 51, 51);
+    # border: 2px rgb(51, 51, 51);
+    # height: auto;
+    # width: 200px;
+    # padding-top: 10px !important
+    # padding-bottom: 10px !important;
+    # }
+    # </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
 
-    st.button("Primary button", type="primary")
-    st.button("Secondary button", type="secondary")
+    primary_style = """
+        <style>
+        div.stButton > button:first-child {
+        background-color: rgb(255, 217, 115);
+        color: rgb(51, 51, 51);
+        border: rgb(51, 51, 51);
+        height: auto;
+        width: 200px;
+        padding-top: 10px !important
+        padding-bottom: 10px !important;
+        }
+        div.stButton > button:first-child:hover {
+        background-color: rgb(255, 233, 173);
+        color: rgb(51, 51, 51);
+        border: rgb(51, 51, 51);
+        }
+        </style>
+    """
+
+    st.markdown(primary_style, unsafe_allow_html=True)
+    st.button("Primary button")
+    st.button("Secondary button", type="primary")
     st.link_button("custom url", "https://www.google.com")
 
     # questions = {1:"Question 1",
