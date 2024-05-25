@@ -37,55 +37,140 @@ def run():
     # }
     # </style>""", unsafe_allow_html=True)
 
-    # st.markdown("""
-    # <style>
-    # button[kind="primary"] {
-    # background-color: rgb(240, 103, 137);
-    # color: rgb(51, 51, 51);
-    # border: 2px rgb(51, 51, 51);
-    # height: auto;
-    # width: 200px;
-    # padding-top: 10px !important
-    # padding-bottom: 10px !important;
-    # }
-    # </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
+    st.markdown("""
+    <style>
+    button[kind="primary"] {
+    background-color: rgb(240, 103, 137);
+    color: rgb(51, 51, 51);
+    border: 2px rgb(51, 51, 51);
+    height: auto;
+    width: 200px;
+    }
+    button[kind="primary"]:hover {
+    background-color: rgb(250, 180, 197);
+    color: rgb(51, 51, 51);
+    border: rgb(51, 51, 51);
+    }
+    button[kind="primary"]:active {
+    background-color: rgb(250, 180, 197);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+    button[kind="primary"]:focus {
+    background-color: rgb(250, 180, 197);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+    button[kind="primary"]:visited {
+    background-color: rgb(255, 217, 115);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+
+    button[kind="secondary"] {
+    background-color: rgb(255, 217, 115);
+    color: rgb(51, 51, 51);
+    border: 2px rgb(51, 51, 51);
+    height: auto;
+    width: 200px;
+    }
+    button[kind="secondary"]:hover {
+    background-color: rgb(255, 233, 173);
+    color: rgb(51, 51, 51);
+    border: rgb(51, 51, 51);
+    }
+    button[kind="secondary"]:active {
+    background-color: rgb(255, 233, 173);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+    button[kind="secondary"]:focus {
+    background-color: rgb(255, 233, 173);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+
+    a[kind="primary"] {
+    background-color: rgb(255, 217, 115);
+    color: rgb(51, 51, 51) !important;
+    border: 2px rgb(51, 51, 51);
+    height: auto;
+    width: 200px;
+    }
+    a[kind="primary"]:hover {
+    background-color: rgb(255, 233, 173);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+    a[kind="primary"]:active {
+    background-color: rgb(140, 139, 105);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }
+    a[kind="primary"]:focus {
+    background-color: rgb(140, 139, 105);
+    color: rgb(51, 51, 51) !important;
+    border: rgb(51, 51, 51);
+    }  
+    </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
 
     # st.markdown("""
     # <style>
     # button[kind="secondary"] {
-    # background-color: rgb(214, 211, 169);
+    # background-color: rgb(255, 217, 115);
     # color: rgb(51, 51, 51);
+    # border: 2px rgb(51, 51, 51);
+    # height: auto;
+    # width: 200px;
+    # }
+    # button[kind="secondary"]:hover {
+    # background-color: rgb(255, 233, 173);
+    # color: rgb(51, 51, 51);
+    # border: rgb(51, 51, 51);
+    # }
+    # button[kind="secondary"]:active {
+    # background-color: rgb(255, 233, 173);
+    # color: rgb(51, 51, 51) !important;
+    # border: rgb(51, 51, 51);
+    # }
+    # button[kind="secondary"]:focus {
+    # background-color: rgb(255, 233, 173);
+    # color: rgb(51, 51, 51) !important;
+    # border: rgb(51, 51, 51);
+    # }
+    # </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
+
+    # st.markdown("""
+    # <style>
+    # a[kind="primary"] {
+    # background-color: rgb(255, 217, 115);
+    # color: rgb(51, 51, 51) !important;
     # border: 2px rgb(51, 51, 51);
     # height: auto;
     # width: 200px;
     # padding-top: 10px !important
     # padding-bottom: 10px !important;
     # }
-    # </style>""", unsafe_allow_html=True) # Edit this to change the background color and text color
+    # a[kind="primary"]:hover {
+    # background-color: rgb(255, 233, 173);
+    # color: rgb(51, 51, 51) !important;
+    # border: rgb(51, 51, 51);
+    # }
+    # a[kind="primary"]:active {
+    # background-color: rgb(140, 139, 105);
+    # color: rgb(51, 51, 51) !important;
+    # border: rgb(51, 51, 51);
+    # }
+    # a[kind="primary"]:focus {
+    # background-color: rgb(140, 139, 105);
+    # color: rgb(51, 51, 51) !important;
+    # border: rgb(51, 51, 51);
+    # }  
+    # </style>""", unsafe_allow_html=True)
 
-    primary_style = """
-        <style>
-        div.stButton > button:first-child {
-        background-color: rgb(255, 217, 115);
-        color: rgb(51, 51, 51);
-        border: rgb(51, 51, 51);
-        height: auto;
-        width: 200px;
-        padding-top: 10px !important
-        padding-bottom: 10px !important;
-        }
-        div.stButton > button:first-child:hover {
-        background-color: rgb(255, 233, 173);
-        color: rgb(51, 51, 51);
-        border: rgb(51, 51, 51);
-        }
-        </style>
-    """
-
-    st.markdown(primary_style, unsafe_allow_html=True)
-    st.button("Primary button")
-    st.button("Secondary button", type="primary")
-    st.link_button("custom url", "https://www.google.com")
+    st.button("Primary button", type="primary")
+    st.button("Secondary button", type="secondary")
+    st.link_button("custom url", "https://www.google.com", type="primary")
 
     # questions = {1:"Question 1",
     #          2:"Question 2",
